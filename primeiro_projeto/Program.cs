@@ -197,6 +197,19 @@ namespace primeiro_projeto
             //    }
             //    Console.WriteLine();
             //}
+
+            // Problema 1 - Ler base e altura de um retângulo e calcular e exibir a área, perímetro e diagonal deste retângulo com 4 casas decimais
+            Console.WriteLine("Digite o valor da base: ");
+            double b=double.Parse(Console.ReadLine(), CI);
+            Console.WriteLine("Digite a altura: ");
+            double h=double.Parse(Console.ReadLine(), CI);
+            double area = b * h;
+            double perimetro = 2 * (b + h);
+            double diagonal = Math.Sqrt(Math.Pow(b,2) + h * h);
+            Console.WriteLine("Medidas (basexaltura): "+b+"x"+h);
+            Console.WriteLine("Área: "+area.ToString("F4"));
+            Console.WriteLine("Perímetro: " + perimetro.ToString("F4"));
+            Console.WriteLine("Diagonal: " + diagonal.ToString("F4"));
         }
     }
 }
