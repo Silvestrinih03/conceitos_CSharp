@@ -4,6 +4,7 @@ public class Class1
 {
 	public Class1()
 	{
-		Console.WriteLine("Teste");
+		int x = 5;
+		Console.WriteLine(x);
 	}
 }
