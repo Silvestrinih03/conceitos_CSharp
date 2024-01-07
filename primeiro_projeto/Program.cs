@@ -199,17 +199,51 @@ namespace primeiro_projeto
             //}
 
             // Problema 1 - Ler base e altura de um retângulo e calcular e exibir a área, perímetro e diagonal deste retângulo com 4 casas decimais
-            Console.WriteLine("Digite o valor da base: ");
-            double b=double.Parse(Console.ReadLine(), CI);
-            Console.WriteLine("Digite a altura: ");
-            double h=double.Parse(Console.ReadLine(), CI);
-            double area = b * h;
-            double perimetro = 2 * (b + h);
-            double diagonal = Math.Sqrt(Math.Pow(b,2) + h * h);
-            Console.WriteLine("Medidas (basexaltura): "+b+"x"+h);
-            Console.WriteLine("Área: "+area.ToString("F4"));
-            Console.WriteLine("Perímetro: " + perimetro.ToString("F4"));
-            Console.WriteLine("Diagonal: " + diagonal.ToString("F4"));
+            //Console.WriteLine("Digite o valor da base: ");
+            //double b=double.Parse(Console.ReadLine(), CI);
+            //Console.WriteLine("Digite a altura: ");
+            //double h=double.Parse(Console.ReadLine(), CI);
+            //double area = b * h;
+            //double perimetro = 2 * (b + h);
+            //double diagonal = Math.Sqrt(Math.Pow(b,2) + h * h);
+            //Console.WriteLine("Medidas (basexaltura): "+b+"x"+h);
+            //Console.WriteLine("Área: "+area.ToString("F4"));
+            //Console.WriteLine("Perímetro: " + perimetro.ToString("F4"));
+            //Console.WriteLine("Diagonal: " + diagonal.ToString("F4"));
+
+            // Problema 2 - Ler nome e idade de duas pessoas e exibir a média
+            //int[] idade = new int[2];
+            //string nome;
+            //Console.WriteLine("Digite o nome da primeira pessoa: ");
+            //nome = Console.ReadLine();
+            //Console.WriteLine("idade: ");
+            //idade[0] = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o nome da segunda pessoa: ");
+            //nome = Console.ReadLine();
+            //Console.WriteLine("idade: ");
+            //idade[1] = int.Parse(Console.ReadLine());
+            //int media = (idade[0] + idade[1]) / 2;
+            //Console.WriteLine(media);
+
+            // Problema 3 - ler três números inteiros e mostrar o maior
+            //int numero, maior=0;
+            //for(int i=0; i < 3; i++)
+            //{
+            //    Console.WriteLine("Número " + i + ": ");
+            //    numero=int.Parse(Console.ReadLine());
+            //    if(numero > maior) maior = numero;
+            //}
+            //Console.WriteLine("Maior = " + maior);
+
+            //Problema 4 - ler três números inteiros e mostrar o menor
+            int numero, menor=100000000;
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Número: "+i+": ");
+                numero = int.Parse(Console.ReadLine());
+                if (numero < menor) menor = numero;
+            }
+            Console.WriteLine("Menor = "+menor);
         }
     }
 }
