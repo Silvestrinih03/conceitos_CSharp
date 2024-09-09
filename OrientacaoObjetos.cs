@@ -23,12 +23,11 @@
     Crie uma interface Autenticavel com um método autenticar(). Depois, crie uma classe Usuario que implementa essa interface, definindo como será o processo de autenticação (por exemplo, verificar uma senha).
 */
 
-
-// Exercício 01
 using System;
 using System.Security.Cryptography;
 using ExerciciosPOO;
 
+// Exercício 01
 namespace ExerciciosPOO
 {
     public class Carro
@@ -91,11 +90,6 @@ namespace ExerciciosPOO
 
 
 // Exercício 02
-using System;
-using System.Security.Cryptography;
-using ExerciciosPOO;
-
-
 public class Cliente
 {
     public long Id { get; set; }
@@ -200,10 +194,6 @@ public class Program
 
 
 // Exercício 03
-using System;
-using System.Security.Cryptography;
-using ExerciciosPOO;
-
 public class Animal
 {
     public string RetornarSom(String Som)
@@ -242,10 +232,6 @@ public class Program
 }
 
 // Exercício 04
-using System;
-using System.Security.Cryptography;
-using ExerciciosPOO;
-
 public class Animal
 {
     public virtual String RetornarSom()
@@ -294,10 +280,6 @@ public class Program
 }
 
 // Exercício 05
-using System;
-using System.Security.Cryptography;
-using ExerciciosPOO;
-
 public class Endereco
 {
     public String Rua { get; set; }
@@ -341,4 +323,122 @@ public class Program()
 
         Console.ReadLine();
     }
+}
+
+// Exercício 06
+public abstract class Funcionario 
+{
+    public string Nome { get; set; }
+    public double Salario { get; set; }
+
+    public double DesempenhoIndividual { get; set; }
+
+    public abstract double calcularBonus();
+}
+
+class Gerente : Funcionario
+{
+    public double BonusDeGerente = 0.05;
+    public override double calcularBonus()
+    {
+
+        return Salario * (DesempenhoIndividual + BonusDeGerente);
+    }
+}
+
+class Desenvolvedor : Funcionario
+{
+    public override double calcularBonus()
+    {
+        return Salario * DesempenhoIndividual;
+    }
+
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Gerente gerente = new Gerente
+        {
+            Nome = "José",
+            Salario = 10000,
+            DesempenhoIndividual = 0.6
+        };
+
+        Desenvolvedor dev = new Desenvolvedor {
+            Nome = "Gabriel",
+            Salario = 9000,
+            DesempenhoIndividual = 0.5
+        };
+
+        var bonusgerente = gerente.calcularBonus();
+        var bonusdev = dev.calcularBonus();
+
+        Console.WriteLine("Bonos do Gerente: "+bonusgerente);
+        Console.WriteLine("Bonus do Desenvolvedor" + bonusdev);
+
+        Console.ReadLine();
+    }
+}
+
+// exercício 07
+interface Autenticacao
+{
+    bool autenticar(string email, string senha);
+}
+
+
+public class Usuario : Autenticacao
+{
+    public string Email { get; set; }
+
+    public string Senha { get; set; }
+
+    
+    public bool autenticar(string email, string senha)
+    {
+        if (!string.IsNullOrEmpty(Email) || !string.IsNullOrEmpty(Senha))
+        {
+            if(Email.Equals(email) && Senha.Equals(senha)) return true;
+        }
+
+        return false;
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args) 
+    {
+        // Implementa aí! Bora rodar!
+        List<Usuario> usuarios = new List<Usuario>
+        {
+            new Usuario { 
+                Email = "nicole@testes.com",
+                Senha = "nicole123"
+            },
+            new Usuario
+            {
+                Email = "everton@testes.com",
+                Senha = "123456" // putz, descobriu minha senha...
+            }
+        };
+
+        var emailnicole = "nicole@testes.com";
+        var senhanicole = "nicole123";
+
+
+        foreach(Usuario user in usuarios)
+        {
+            var emailusuario = user.Email;
+            var senhausuario = user.Senha;
+
+            Console.WriteLine("Resposta: " + user.autenticar(emailnicole, senhanicole));
+
+        }
+
+        Console.ReadLine();
+    }
+
 }
