@@ -9,7 +9,7 @@ namespace ExerciciosPOO
     internal class Teste
     {
         /*Printar de 10 a 0 na tela em um único método*/
-        
+
         public void ContagemRegressiva(int numero)
         {
             if (numero <= 0) { Console.WriteLine("O menor número possível para essa função é 1!"); }
@@ -26,6 +26,22 @@ namespace ExerciciosPOO
             }
         }
 
+
+        public int ContarDigitos(int numero)
+        {
+            if (numero < 0)
+            {
+                Console.WriteLine("O núemero deve ser positivo!!");
+                return 0;
+            }
+
+            if (numero == 0)
+            {
+                return 0;
+            }
+
+            return 1 + ContarDigitos(numero / 10);
+        }
         //public void metodo2()
         //{
         //    ContagemRegressiva(-1);
@@ -38,7 +54,7 @@ public class Program
     public static void Main(string[] args)
     {
         Teste teste = new Teste();
-        
+
         teste.ContagemRegressiva(10);
 
         Console.WriteLine("BREAK\n");
@@ -46,6 +62,14 @@ public class Program
 
         Console.WriteLine("BREAK\n");
         teste.ContagemRegressiva(0);
+
+        // Função 2
+        Teste teste = new Teste();
+
+        var aaa = teste.ContarDigitos(12345);
+
+        Console.WriteLine(aaa);
+
 
         Console.ReadLine();
     }
